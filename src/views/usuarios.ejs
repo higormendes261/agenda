@@ -1,0 +1,44 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">KnowSys</h1>
+      <p class="text-center lead">Usuarios estão abaixo</p>
+      <button type="button" class="btn btn-primary"><a href="/editarUsuario/index" style="text-decoration: none; color: white;">Criar novo usuário</a></button>
+      <div class="responsive-table">
+        <table class="table my-3">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Matricula</th>
+        <th scope="col">Email</th>
+        <th scope="row" colspan="4">Opções</th>
+      </tr>
+    <tr>
+
+      <%- include('includes/messages') %>
+
+      <% if(usuario.length > 0) { %>
+          <% usuario.forEach(usuario => { %>
+            <% if (usuario.tipoUsuario === "administrador") { return; } %>
+            <td><%= usuario.inputNome %></td>
+            <td><%= usuario.inputMatricula %></td>
+            <td><%= usuario.email %></td>
+            <td><a href="/editarUsuario/index/<%= usuario._id %>">Editar</a></td>
+            <td><a class="text-danger" href="/editarUsuario/delete/<%= usuario._id %>">Excluir</a></td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+      <% } else { %>
+        <p class="text-center lead">Não existem usuarios cadastrados.</p>
+      <% } %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

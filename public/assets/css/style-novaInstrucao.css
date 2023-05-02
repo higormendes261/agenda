@@ -1,0 +1,97 @@
+.container-instrucao {
+    padding: 0 20rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.formulario-novaInstrucao label {
+    display: inline-block;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.formulario-novaInstrucao input {
+    background: white;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    font-size: 24px;
+    box-sizing: border-box;
+    justify-items: end;
+    display: block;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #000000;
+    padding: 8px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.formulario-novaInstrucao textarea {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    font-size: 24px;
+    border: 1px solid #000000;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container-instrucao h1 {
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+.formulario-novaInstrucao button {
+    font-size: 20px;
+    position: relative;
+    float: right;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 189px;
+    margin: 10px;
+
+}
+
+.confirmar-instrucao {
+    background-color: #4BAE4F;
+    color: #fff;
+    border-color: #4BAE4F;
+}
+
+.cancelar-instrucao {
+    background-color: #E81616;
+    color: #fff;
+    border-color: #E81616;
+}
+
+.formulario-novaInstrucao button:hover {
+    background: rgb(9, 48, 56);
+    border-color: rgb(9, 48, 56);
+}
+
+.container-instrucao img {
+
+    background-color: #3CDDDD;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 15px 0 0;
+
+}
+
+.container-instrucao div {
+    display: flex;
+    align-items: center;
+
+}
+
+.arquivos-instrucao {
+    padding-top: 8px;
+    font: 24px 'Nunito', sans-serif;
+
+}
+.voltar{
+    padding: 10px 0 0 15px;
+}

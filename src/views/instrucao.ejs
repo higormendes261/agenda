@@ -1,0 +1,46 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">KnowSys</h1>
+      <p class="text-center lead">Instruções estão abaixo</p>
+      <% if(user.tipoUsuario === "administrador") { %>
+        <button type="button" class="btn btn-primary"><a href="/novaInstrucao/index" style="text-decoration: none; color: white;">Criar nova instrução.</a></button>
+      <% }%>
+      <div class="responsive-table">
+        <table class="table my-3">
+      <tr>
+        <th scope="col">Categoria</th>
+        <th scope="col">Titulo</th> 
+
+        <% if(user.tipoUsuario === "administrador") { %>
+          <th scope="row" colspan="2">Opções</th>
+        <% }%>
+      </tr>
+    <tr>
+      <%- include('includes/messages') %>
+      <% if(instrucao.length > 0) { %>
+          <% instrucao.forEach(instrucao => { %>
+            <td><%= instrucao.categoriaInstrucao %></td>
+            <td><a href="/instrucao2/index/<%= instrucao._id %>"><%= instrucao.temaInstrucao %></a></td>
+            <% if(user.tipoUsuario === "administrador") { %>
+              <td><a href="/novaInstrucao/index/<%= instrucao._id %>">Editar</a></td>
+              <td><a class="text-danger" href="/novaInstrucao/delete/<%= instrucao._id %>">Excluir</a></td>
+            <% }%>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+      <% } else { %>
+        <p class="text-center lead">Não existem instruções cadastradas.</p>
+      <% } %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

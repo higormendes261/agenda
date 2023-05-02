@@ -1,25 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Agenda</a>
+<style>
+  .navbar-custom{
+    background: #428383;
+    font-size: 20px;
+  }
+  
+  .nav-link{
+    color: white !important;
+    
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark  navbar-custom">
+  <a class="navbar-brand" href="/duvidas/index"><img src="http://localhost:3000/assets/img/icone-KnowSys2.png" style="width: 80px; height: 50px; margin-left: 50px;" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-
-      <li class="nav-item">
-        <a class="nav-link" href="/contato/index">Cadastrar contato</a>
-      </li>
-
+      
       <% if(user) { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/login/logout">Sair</a>
-        </li>
+        <% if(user.tipoUsuario==="administrador") { %>
+        <li class="nav-item"><a class="nav-link" href="/home/index">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/instrucao/index">Instruções</a></li>
+        <li class="nav-item"><a class="nav-link" href="/duvidas/index">Dúvidas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/usuarios/index">Usuários</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login/logout">Sair</a></li>
+        <% } else { %>
+          <li class="nav-item"><a class="nav-link" href="/instrucao/index">Instruções</a></li>
+          <li class="nav-item"><a class="nav-link" href="/duvidas/index">Dúvidas</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login/logout">Sair</a></li>
+        <% } %>
       <% } else { %>
         <li class="nav-item">
           <a class="nav-link" href="/login/index">Entrar</a>
         </li>
-        <% } %>
+        <li class="nav-item"><a class="nav-link" href="/instrucao/index">Instruções</a></li>
+        <li class="nav-item"><a class="nav-link" href="/duvidas/index">Dúvidas</a></li>
+      <% } %>
 
     </ul>
   </div>

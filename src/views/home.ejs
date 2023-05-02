@@ -1,0 +1,49 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container align-items-center" style="margin-top: 20px;">
+
+
+<div class="d-flex">
+  <div class="p-2 w-10 align-self-center"><img src="http://localhost:3000/assets/img/icone-KnowSys.png" alt="Foto de perfil"></div>
+  <div class="p-2 flex-shrink-1 align-self-center">
+    <h1>
+      Bem-vindo(a), <%= user.inputNome %>
+  </h1>
+  <div class="container rounded" style="background: #F0F0F0; padding: 10px 15px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni inventore reprehenderit iusto fugiat, distinctio pariatur beatae fuga. Perferendis, in blanditiis!</div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center my-4">Temas mais acessados</h2>
+    </div>
+  </div>
+  <% var contador = 0 %>
+  <% if (instrucao.length > 0) { %>
+    <div class="row justify-content-center">
+      <% instrucao.forEach((instrucao, indice) => { %>
+        <% if (indice === 4) { return; } %>
+        <div class="col-md-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= instrucao.categoriaInstrucao %></h5>
+              <p class="card-text"><%= instrucao.temaInstrucao %></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary"><%= instrucao.temaInstrucao %></small>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p class="text-center lead">Não existem instruções cadastradas.</p>
+  <% } %>
+</div>
+
+
+<%- include('includes/footer') %>

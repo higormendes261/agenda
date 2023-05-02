@@ -1,0 +1,35 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+<head><link rel="stylesheet" href="/assets/css/style-novaInstrucao.css"></head>
+<section class="container-instrucao">
+    <div>
+        <img src="/assets/img/add (2) 1.png" alt="">
+        <h1>Nova Instrução</h1>
+    </div>
+    <%- include('includes/messages'); %>
+
+    <% if(instrucao._id) { %>
+        <form class="formulario-novaInstrucao" id="formulario-novaInstrucao" action="/novaInstrucao/edit/<%= instrucao._id %>" method="POST">
+        <% } else { %>
+        <form class="formulario-novaInstrucao" id="formulario-novaInstrucao" action="/novaInstrucao/register" method="POST">
+        <% } %>
+    <!-- <form class="formulario-novaInstrucao" action="/novaInstrucao/register" id="formulario-novaInstrucao" method="POST"> -->
+        <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+        <label for="categoria-instrucao">Categoria:</label>
+        <input value="<%= instrucao.categoriaInstrucao %>" type="text" id="categoria-instrucao" name="categoriaInstrucao">
+
+        <label for="tema-instrucao">Título:</label>
+        <input value="<%= instrucao.temaInstrucao %>" type="text" id="tema-instrucao" name="temaInstrucao">
+
+        <label for="descricao-instrucao">Descrição:</label>
+        <textarea name="descricaoInstrucao" id="descricao-instrucao" cols="30" rows="10"><%= instrucao.descricaoInstrucao %></textarea>
+
+        <!-- <button class="cancelar-instrucao" type="submit"> Cancelar</button> -->
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        
+    </form>
+    <input type="file" class="arquivos-instrucao">
+
+
+</section>
+<%- include('includes/footer') %>

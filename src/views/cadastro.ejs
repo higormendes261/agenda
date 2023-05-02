@@ -1,0 +1,55 @@
+<%- include('includes/head') %>
+  <%- include('includes/nav') %>
+  <head>
+    <link rel="stylesheet" href="/assets/css/style-cadastro.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+    $("#input-cnpjEmpresa").mask("00.000.000/0000-00");
+    </script>
+</head>
+  <form class="formulario-cadastro" action="/cadastro/register" id="formulario-cadastro" method="POST">
+    <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+    <input type="hidden" name="tipoUsuario" value="administrador">
+    <div>
+        <img src="/assets/img/cadastro.png" alt="Icone de cadastro">
+        <h1>Cadastro</h1>
+    </div>
+    <%- include('includes/messages'); %>
+    <label for="inputNomeEmpresa">Razão Social ou Nome fantasia:</label>
+    <input type="text" id="inputNomeEmpresa" name="inputNomeEmpresa" placeholder="Sua empresa" />
+
+    <section class="section-labelDeDadosDaEmpresa">
+        <label for="input-cnpjEmpresa" class="labelCnpj">CNPJ:</label>
+        <label for="input-emailEmpresa" class="labelEmail">Email:</label>
+    </section>
+    <section class="section-inputDadosDaEmpresa">
+        <input type="text" id="input-cnpjEmpresa" name="inputCnpjEmpresa" placeholder="xx.xxx.xxx/xxxx-xx" />
+        <input type="email" id="input-emailEmpresa" name="inputEmailEmpresa" placeholder="exemplo@exemplo.com" />
+    </section>
+
+    <h2 class="subtitulo">Moderador(a)</h2>
+    <section class="label-moderador">
+        <label for="inputNome" class="label-nomeModerador">Nome:</label>
+        <label for="inputMatricula">Matrícula:</label>
+    </section>
+
+    <section class="section-dadosModerador">
+        <input type="text" id="inputNomeModerador" name="inputNome" />
+        <input type="text" id="inputMatriculaModerador" name="inputMatricula" />
+    </section>
+    <label for="inputEmailModerador">Email:</label>
+    <input type="email" id="inputEmailModerador" name="email" placeholder="exemplo@exemplo.com" />
+    <section class="label-moderador">
+        <label for="inputSenhaModerador" class="label-senhaModerador">Senha:</label>
+        <label for="input-confirmacaoSenhaModerador">Confirmação de senha:</label>
+    </section>
+
+    <section class="section-dadosModerador">
+        <input type="password" id="inputSenhaModerador" name="password" />
+        <input type="password" id="input-confirmacaoSenhaModerador" name="inputConfirmacaoSenhaModerador" />
+    </section>
+    <button class="confirmar-cadastro" type="submit">Salvar</button>
+</form>
+</div>
+<%- include('includes/footer') %>
