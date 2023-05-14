@@ -1,10 +1,31 @@
 <%- include('includes/head') %>
 <%- include('includes/nav') %>
-<head><link rel="stylesheet" href="/assets/css/style-novaInstrucao.css"></head>
+<%- include('includes/botaoVoltar') %>
+
+<style>
+    .descricao-instrucao {
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+    .tema{
+        margin-top: 50px;
+    }
+
+    .descricao-instrucao{
+        margin-top: 20px;
+    }
+
+</style>
+
+<head><link rel="stylesheet" href="/assets/css/style-novaInstrucao.css">
+
+</head>
 <section class="container-instrucao">
     <div>
         <img src="/assets/img/add (2) 1.png" alt="">
-        <h1><%= instrucao.categoriaInstrucao %></h1>
+        <h1 class="card-title" ><%= instrucao.categoriaInstrucao %></h1>
     </div>
     <%- include('includes/messages'); %>
 
@@ -13,18 +34,16 @@
         <% } else { %>
         <form class="formulario-novaInstrucao" id="formulario-novaInstrucao" action="/novaInstrucao/register" method="POST">
         <% } %>
-    
-        <% if(user.tipoUsuario === "administrador") { %>
-            <td><a href="/novaInstrucao/index/<%= instrucao._id %>">Editar</a></td>
-            <td><a class="text-danger" href="/novaInstrucao/delete/<%= instrucao._id %>">Excluir</a></td>
-          <% }%>
 
         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
 
-        <h2><%= instrucao.temaInstrucao %></h2>
-        <p><%= instrucao.descricaoInstrucao %></p>
+        <h2 class="card-subtitle mb-2 text-body-secondary tema" ><%= instrucao.temaInstrucao %></h2>
+        <p class="card-text descricao-instrucao"><%= instrucao.descricaoInstrucao %></p>
        
-        
+        <% if(user.tipoUsuario === "administrador") { %>
+            <td><a class="btn btn-primary"  href="/novaInstrucao/index/<%= instrucao._id %>">Editar</a></td>
+            <td><a class="btn btn-outline-secondary" href="/novaInstrucao/delete/<%= instrucao._id %>">Excluir</a></td>
+          <% }%>
     </form>
  
 

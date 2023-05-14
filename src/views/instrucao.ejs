@@ -1,5 +1,7 @@
 <%- include('includes/head') %>
 <%- include('includes/nav') %>
+<%- include('includes/botaoVoltar') %>
+
 
 <div class="container">
   <div class="row">
@@ -25,11 +27,13 @@
       <%- include('includes/messages') %>
       <% if(instrucao.length > 0) { %>
           <% instrucao.forEach(instrucao => { %>
+            <% if(instrucao.inputCnpjEmpresa == user.inputCnpjEmpresa) { %>
             <td><%= instrucao.categoriaInstrucao %></td>
             <td><a href="/instrucao2/index/<%= instrucao._id %>"><%= instrucao.temaInstrucao %></a></td>
             <% if(user.tipoUsuario === "administrador") { %>
               <td><a href="/novaInstrucao/index/<%= instrucao._id %>">Editar</a></td>
               <td><a class="text-danger" href="/novaInstrucao/delete/<%= instrucao._id %>">Excluir</a></td>
+              <% }%>
             <% }%>
           </tr>
           <% }); %>

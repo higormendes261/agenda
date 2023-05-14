@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const InstrucaoSchema = new mongoose.Schema({
-    categoriaInstrucao: { type: String, required: true },
-    temaInstrucao: { type: String, required: true },
-    descricaoInstrucao: { type: String, required: true },
+  categoriaInstrucao: { type: String, required: true },
+  temaInstrucao: { type: String, required: true },
+  descricaoInstrucao: { type: String, required: true },
+  inputCnpjEmpresa: { type: String, required: true },
+  contador: { type: Number, default: 0 }
 });
 
 const InstrucaoModel = mongoose.model('instrucao', InstrucaoSchema);
@@ -44,6 +46,7 @@ Instrucao.prototype.cleanUp = function() {
     categoriaInstrucao: this.body.categoriaInstrucao,
     temaInstrucao: this.body.temaInstrucao,
     descricaoInstrucao: this.body.descricaoInstrucao,
+    inputCnpjEmpresa: this.body.inputCnpjEmpresa
   };
 };
 
