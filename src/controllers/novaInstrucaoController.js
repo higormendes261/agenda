@@ -66,3 +66,4 @@ exports.register = async function(req, res) {
     req.session.save(() => res.redirect('back'));
     return;
   };
+  

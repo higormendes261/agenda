@@ -12,3 +12,4 @@ class Home {
 }
 
 module.exports = Home;
+

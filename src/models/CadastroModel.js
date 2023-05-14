@@ -135,3 +135,4 @@ Cadastro.delete = async function(id) {
 
 module.exports = Cadastro;
 
+
